@@ -1,1 +1,18 @@
-<p>student works!</p>
+<div class="container">
+    <mat-toolbar class="toolbar">
+        <!-- <span>Students</span> -->
+        <div class="buttonSpace">
+            <button mat-raised-button color="primary" (click)="redirectShowStudents()">View Students</button>
+            <button mat-raised-button color="primary" (click)="redirectCreateStudents()">Create Student</button>
+        </div>
+
+    </mat-toolbar>
+
+    <mat-toolbar>
+        <div class="tittle">
+            <h1>{{title}}</h1>
+        </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+
+</div>

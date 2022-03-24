@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from 'src/app/interface/menu';
 import { MenuService } from 'src/app/services/menu.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,12 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  
+  studentTtile = 'Students';
   menu : Menu[] = []
   
-  constructor(private _menuService : MenuService) { 
+  constructor(private _menuService : MenuService,
+    private _sharedService : SharedService) { 
 
   }
 
@@ -24,6 +27,10 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.menu = data;
     })
+  }
+
+  sendStudentTitle(){
+    this._sharedService.changeStudentTitle(this.studentTtile);
   }
 
 }

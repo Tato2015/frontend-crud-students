@@ -1,0 +1,15 @@
+.toolbar {
+    background-color: #343b40;
+}
+
+.buttonSpace {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tittle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

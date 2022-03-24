@@ -1,0 +1,140 @@
+<mat-card style="margin-top: 10px;">
+    <form [formGroup]="form">
+
+        <mat-grid-list cols="4" rowHeight="70px">
+            <!-- Ini - Row 1 -->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="name">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option *ngFor="let item of gender" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Address</mat-label>
+                    <input matInput autocomplete="off" formControlName="address">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="5" [style.background]="'#e8ecef'">
+            </mat-grid-tile>
+            <!-- Fin - Row 1 -->
+
+            <!-- Ini - Row 2 -->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="lastName">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Phone 1</mat-label>
+                    <input matInput autocomplete="off" formControlName="phoneOne">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="countries">
+                        <mat-option *ngFor="let item of countries" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Fin - Row 2 -->
+            <!-- Ini - Row 3-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>Birthday</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthday">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Phone 2</mat-label>
+                    <input matInput autocomplete="off" formControlName="phoneTwo">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="cities">
+                        <mat-option *ngFor="let item of cities" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Fin - Row 3-->
+            <!-- Ini - Row 4 -->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>ID</mat-label>
+                    <input matInput autocomplete="off" formControlName="identification">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Phone Reference</mat-label>
+                    <input matInput autocomplete="off" formControlName="phoneReference">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput autocomplete="off" formControlName="postalCode">
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Fin - Row 4 -->
+            <!-- Ini - Row 5 -->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Email</mat-label>
+                    <input matInput autocomplete="off" formControlName="email">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Marital Status</mat-label>
+                    <mat-select formControlName="maritalStatus">
+                        <mat-option *ngFor="let item of maritalStatus" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Other</mat-label>
+                    <input matInput autocomplete="off" formControlName="otherMaritalStatus">
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Fin - Row 5 -->
+
+
+
+            <!-- Ini - Row 6 -->
+            <mat-grid-tile [colspan]="4" [rowspan]="1">
+                <button mat-raised-button style="margin-right: 20px;">Volver</button>
+                <button mat-raised-button style="margin-right: 20px;">Grabar</button>
+                <button mat-raised-button style="margin-right: 20px;">Limpiar</button>
+                <!-- <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button> -->
+            </mat-grid-tile>
+            <!-- Fin - Row 6 -->
+        </mat-grid-list>
+
+    </form>
+</mat-card>

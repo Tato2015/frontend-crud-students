@@ -10,12 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Components
-import { StudentComponent } from './components/dashboard/student/student.component';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent,    
-    StudentComponent
+    AppComponent    
   ],
   imports: [
     BrowserModule,
@@ -23,6 +22,7 @@ import { StudentComponent } from './components/dashboard/student/student.compone
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
