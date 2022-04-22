@@ -5,7 +5,7 @@
         <th mat-header-cell *matHeaderCellDef [style.background-color]="'rgba(232,236,239,255)'">
             No.
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element"> {{dataSource.filteredData.indexOf(element) + 1}} </td>
     </ng-container>
 
     <!-- Name Column -->
@@ -15,21 +15,37 @@
         </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
+   
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef [style.background-color]="'rgba(232,236,239,255)'">
-            Weight
+            Last Name
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
+    <!-- Country Column -->
+    <ng-container matColumnDef="country">
         <th mat-header-cell *matHeaderCellDef [style.background-color]="'rgba(232,236,239,255)'">
-            Symbol
+            Country
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="'rgba(232,236,239,255)'">
+            City
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+    
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="'rgba(232,236,239,255)'">
+            Address
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
     </ng-container>
 
     <!-- Actions Column -->

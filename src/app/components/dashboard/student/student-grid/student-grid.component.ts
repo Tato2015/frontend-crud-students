@@ -1,8 +1,10 @@
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { StudentService } from 'src/app/services/student.service';
+import { Student } from 'src/app/_model/student';
 
 export interface PeriodicElement {
   name: string;
@@ -13,16 +15,16 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H',actions:''},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He',actions:''},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li',actions:''},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be',actions:''},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B',actions:''},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C',actions:''},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N',actions:''},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O',actions:''},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F',actions:''},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne',actions:''},
+  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', actions: '' },
+  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', actions: '' },
+  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', actions: '' },
+  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', actions: '' },
+  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B', actions: '' },
+  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', actions: '' },
+  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', actions: '' },
+  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', actions: '' },
+  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', actions: '' },
+  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', actions: '' },
 ];
 
 @Component({
@@ -30,22 +32,33 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './student-grid.component.html',
   styleUrls: ['./student-grid.component.css']
 })
-export class StudentGridComponent implements AfterViewInit  {
+export class StudentGridComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['position', 'name', 'lastName', 'country', 'city', 'address', 'actions'];
+  dataSource !: MatTableDataSource<Student>;
 
-  constructor() { }
+  constructor(
+    private studentService: StudentService
+  ) { }
 
-  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
+    this.studentService.getAll().subscribe(data => {
+      console.log('Students : ', data);
+      this.buildTable(data);
+    });
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
   }
 
-  
+  buildTable(data: Student[]) {
+    this.dataSource = new MatTableDataSource(data)
+    this.dataSource.paginator = this.paginator
+  }
+
+
 }
