@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { StudentService } from 'src/app/services/student.service';
-import { Student } from 'src/app/_model/student';
+import { StudentDto } from 'src/app/_model/student';
 
 export interface PeriodicElement {
   name: string;
@@ -35,7 +35,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class StudentGridComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['position', 'name', 'lastName', 'country', 'city', 'address', 'actions'];
-  dataSource !: MatTableDataSource<Student>;
+  dataSource !: MatTableDataSource<StudentDto>;
 
   constructor(
     private studentService: StudentService
@@ -55,7 +55,7 @@ export class StudentGridComponent implements AfterViewInit {
     //this.dataSource.paginator = this.paginator;
   }
 
-  buildTable(data: Student[]) {
+  buildTable(data: StudentDto[]) {
     this.dataSource = new MatTableDataSource(data)
     this.dataSource.paginator = this.paginator
   }

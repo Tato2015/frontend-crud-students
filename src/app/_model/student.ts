@@ -1,4 +1,6 @@
-export class Student {
+import { CatalogDto } from "./catalog"
+
+export class StudentDto {
 
     studentId !: Number
     name !: String
@@ -6,15 +8,16 @@ export class Student {
     birthday !: Date
     idNumber !: Number
     email !: String
-    gender !: Number
+    genderDto !: CatalogDto
     phoneOne !: Number
     phoneTwo !: Number
     phoneReference !: Number
-    maritalStatus !: Number
+    maritalStatusDto !: CatalogDto
     address !: String
-    country !: Number
-    city !: Number
+    countryDto !: CatalogDto
+    cityDto !: CatalogDto
     postalCode !: String
     other !: String
+
 
 }
